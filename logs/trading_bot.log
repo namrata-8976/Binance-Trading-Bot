@@ -1,0 +1,105 @@
+2026-04-15 13:19:58,945 | INFO | trading_bot | Connected successfully. Server time response: {'serverTime': 1776239400378}
+2026-04-15 13:44:12,871 | INFO | trading_bot | Connected successfully. Server time response: {'serverTime': 1776240854531}
+2026-04-15 15:43:23,628 | ERROR | trading_bot | Execution failed: 'Namespace' object has no attribute 'order_type'
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 31, in main
+    order_type = validate_order_type(args.order_type)
+                                     ^^^^^^^^^^^^^^^
+AttributeError: 'Namespace' object has no attribute 'order_type'
+2026-04-15 15:44:46,770 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = BUY type = MARKET quantity = 0.001 price = None
+2026-04-15 15:44:47,363 | INFO | trading_bot | Order response: {'orderId': 13036787766, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJd898138abe160c74831f36', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776248089032}
+2026-04-15 15:46:43,147 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = 12000.0
+2026-04-15 15:46:43,715 | ERROR | trading_bot | Execution failed: APIError(code=-4024): Limit price can't be lower than 70358.72.
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 54, in main
+    response = place_limit_order(client, symbol, side,quantity, price)
+  File "D:\trading_bot\bot\orders.py", line 10, in place_limit_order
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol = symbol,
+        ^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        price = price,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4024): Limit price can't be lower than 70358.72.
+2026-04-15 15:47:26,211 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = 80000.0
+2026-04-15 15:47:26,577 | INFO | trading_bot | Order response: {'orderId': 13036790994, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJf0973be1167a1b2eeb0b13', 'price': '80000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776248248258}
+2026-04-15 15:52:24,136 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = 12000.0
+2026-04-15 15:52:24,689 | ERROR | trading_bot | Binance API error : APIError(code=-4024): Limit price can't be lower than 70231.42.
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 54, in main
+    response = place_limit_order(client, symbol, side,quantity, price)
+  File "D:\trading_bot\bot\orders.py", line 10, in place_limit_order
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol = symbol,
+        ^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        price = price,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4024): Limit price can't be lower than 70231.42.
+2026-04-15 15:53:15,620 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = 100000.0
+2026-04-15 15:53:15,989 | INFO | trading_bot | Order response: {'orderId': 13036798541, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJae72722726ef5adffb4129', 'price': '100000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776248597671}
+2026-04-15 16:01:33,561 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = None
+2026-04-15 16:01:33,562 | ERROR | trading_bot | Execution failed: Price is required for LIMIT orders
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 52, in main
+    raise ValueError("Price is required for LIMIT orders")
+ValueError: Price is required for LIMIT orders
+
+2026-04-15 16:02:44,871 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = None
+
+2026-04-15 16:02:44,872 | ERROR | trading_bot | Execution failed: Price is required for LIMIT orders
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 52, in main
+    raise ValueError("Price is required for LIMIT orders")
+ValueError: Price is required for LIMIT orders
+2026-04-15 16:18:52,008 | INFO | trading_bot | Order Request:
+ symbol = BTCUSDT
+ side = SELL
+ type = MARKET
+ quantity = 0.001
+ price = None
+2026-04-15 16:18:52,582 | INFO | trading_bot | Order response: {'orderId': 13036837209, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJb58979b3dd3ee2d9303238', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776250134267}
+2026-04-15 17:11:38,792 | ERROR | trading_bot | Execution failed: 'NoneType' object has no attribute 'symbol'
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 79, in main
+    symbol = validate_symbol(args.symbol)
+                             ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'symbol'
+2026-04-15 17:14:05,542 | INFO | trading_bot | Order cancelled before submission by user.
+2026-04-15 17:14:29,804 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.01 price = 80000.0
+2026-04-15 17:14:30,345 | INFO | trading_bot | Order response: {'orderId': 13036907798, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ8c38de98ec322fc8b36917', 'price': '80000.00', 'avgPrice': '0.00', 'origQty': '0.0100', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776253472022}
+2026-04-15 17:15:57,616 | ERROR | trading_bot | Execution failed: Side must be BUY or SELL
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 82, in main
+    side = validate_side(args.side)
+  File "D:\trading_bot\bot\validators.py", line 9, in validate_side
+    raise ValueError("Side must be BUY or SELL")
+ValueError: Side must be BUY or SELL
