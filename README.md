@@ -14,34 +14,62 @@ A simple Python CLI application for placing MARKET and LIMIT orders on the Binan
   - Interactive mode with user prompts and order confirmation
     
 ## Requirements
+
 - Python 3.x
 - Binance Futures Testnet account
 - Binance Futures Testnet API key and secret
 
-1. Setup
+Install dependencies using:
+```
 pip install -r requirements.txt
+```
 
-2. .env format
-BINANCE_API_KEY = your_key
-BINANCE_API_SECRET = your_secret
+## Environment Variables
 
-The steps to get your api key and secret is:
-1. Go to https://testnet.binancefuture.com
-2. In the drop down of Account symbol in top right corner click Demo Trading API and create API
-3. Copy API key and Secret key
+Create a .env file in the project root and add:
+```
+BINANCE_API_KEY=your_api_key
+BINANCE_API_SECRET=your_api_secret
+```
 
-3.How to run?
-i. CLI Mode
-Example:
+## How to Get Binance Futures Testnet API Credentials
+
+- Open the [Binance Futures Testnet website](https://testnet.binancefuture.com).
+- Log in or create a testnet account.
+- Click the account/profile icon in the top-right corner.
+- Open Demo Trading API.
+- Create a new API key.
+- Copy and save the API Key and Secret Key.
+
+## How to Run
+
+1. CLI Mode
+
+Example MARKET Order:
+```
 py cli.py --symbol BTCUSDT --side BUY --order_type MARKET --quantity 0.001
-ii. Interactive Mode
-Example:
+```
+Example LIMIT Order:
+
+```
+py cli.py --symbol BTCUSDT --side SELL --order_type LIMIT --quantity 0.001 --price 80000
+```
+
+2. Interactive Mode
+
+Run
+```
 py cli.py
+```
+
+Example Flow:
+```
 Enter symbol (e.g. BTCUSDT): BTCUSDT
 Enter side (BUY/SELL): SELL
 Enter order type (MARKET/LIMIT): LIMIT
 Enter quantity: 0.01
 Enter price: 80000
+
 Order Request Summary
 Symbol      : BTCUSDT
 Side        : SELL
@@ -49,3 +77,6 @@ Order Type  : LIMIT
 Quantity    : 0.010
 Price       : 80000.00
 Confirm order? (Y/N): Y
+```
+## Assumptions
+
