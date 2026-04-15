@@ -4,17 +4,9 @@ A simple Python-based CLI application that can place orders on Binance Futures T
 
 ---
 
-## About The Project
-
-This project is a lightweight trading bot designed to interact with the Binance Futures Testnet using Python. It allows users to place orders programmatically while ensuring input validation, structured logging, and clean code organization.
-
----
-
 ## Getting Started
 
 Follow these steps to run the project locally.
-
----
 
 ### Prerequisites
 
@@ -48,6 +40,8 @@ BINANCE_API_SECRET=your_api_secret
 > - Navigate to Demo Trading API from the profile menu
 > - Generate a new API key
 > - Save both the API Key and Secret Key
+
+---
 
 ### Usage
 
@@ -89,6 +83,9 @@ Quantity    : 0.010
 Price       : 80000.00
 Confirm order? (Y/N): Y
 ```
+
+---
+
 ### Assumptions
 
 - A valid .env file with testnet API credentials exists in the project root prior to execution.
