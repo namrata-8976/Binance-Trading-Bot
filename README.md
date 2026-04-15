@@ -29,7 +29,7 @@ cd Binance-Trading-Bot
 pip install -r requirements.txt
 ```
 
-3. Create a .env file in the root directory
+3. Create a file named .env in the project root directory with the following contents:
 ```env
 BINANCE_API_KEY=your_api_key
 BINANCE_API_SECRET=your_api_secret
