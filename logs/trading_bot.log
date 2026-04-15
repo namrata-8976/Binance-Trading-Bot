@@ -1,0 +1,49 @@
+2026-04-15 20:43:35,656 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = BUY type = MARKET quantity = 0.001 price = None
+2026-04-15 20:43:36,308 | INFO | trading_bot | Order response: {'orderId': 13037227507, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ1c2c0bac7430eee6cb0f49', 'price': '0.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'MARKET', 'reduceOnly': False, 'closePosition': False, 'side': 'BUY', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'MARKET', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776266018005}
+2026-04-15 20:43:36,309 | INFO | trading_bot | 
+
+2026-04-15 20:44:02,186 | INFO | trading_bot | Order Request | symbol = BTCUSDT side = SELL type = LIMIT quantity = 0.001 price = 100000.0
+2026-04-15 20:44:02,594 | INFO | trading_bot | Order response: {'orderId': 13037228089, 'symbol': 'BTCUSDT', 'status': 'NEW', 'clientOrderId': 'x-Cb7ytekJ75f5f169e5297d6b020e03', 'price': '100000.00', 'avgPrice': '0.00', 'origQty': '0.0010', 'executedQty': '0.0000', 'cumQty': '0.0000', 'cumQuote': '0.000000', 'timeInForce': 'GTC', 'type': 'LIMIT', 'reduceOnly': False, 'closePosition': False, 'side': 'SELL', 'positionSide': 'BOTH', 'stopPrice': '0.00', 'workingType': 'CONTRACT_PRICE', 'priceProtect': False, 'origType': 'LIMIT', 'priceMatch': 'NONE', 'selfTradePreventionMode': 'EXPIRE_MAKER', 'goodTillDate': 0, 'updateTime': 1776266044269}
+2026-04-15 20:44:02,596 | INFO | trading_bot | 
+
+2026-04-15 20:44:09,766 | ERROR | trading_bot | Execution failed: Side must be BUY or SELL
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 83, in main
+    side = validate_side(args.side)
+  File "D:\trading_bot\bot\validators.py", line 9, in validate_side
+    raise ValueError("Side must be BUY or SELL")
+ValueError: Side must be BUY or SELL
+2026-04-15 20:44:16,320 | ERROR | trading_bot | Execution failed: Order type must be MARKET or LIMIT
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 84, in main
+    order_type = validate_order_type(args.order_type)
+  File "D:\trading_bot\bot\validators.py", line 15, in validate_order_type
+    raise ValueError("Order type must be MARKET or LIMIT")
+ValueError: Order type must be MARKET or LIMIT
+2026-04-15 20:44:48,428 | INFO | trading_bot | Order Request | symbol = ETHUSDT side = BUY type = LIMIT quantity = 50.0 price = 50000.0
+2026-04-15 20:44:49,124 | ERROR | trading_bot | Binance API error : APIError(code=-4016): Limit price can't be higher than 2460.14.
+Traceback (most recent call last):
+  File "D:\trading_bot\cli.py", line 118, in main
+    response = place_limit_order(client, symbol, side,quantity, price)
+  File "D:\trading_bot\bot\orders.py", line 10, in place_limit_order
+    return client.futures_create_order(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        symbol = symbol,
+        ^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        price = price,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 7951, in futures_create_order
+    return self._request_futures_api("post", "order", True, data=params)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 144, in _request_futures_api
+    return self._request(method, uri, signed, force_params, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 107, in _request
+    return self._handle_response(self.response)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Program Files\Python314\Lib\site-packages\binance\client.py", line 116, in _handle_response
+    raise BinanceAPIException(response, response.status_code, response.text)
+binance.exceptions.BinanceAPIException: APIError(code=-4016): Limit price can't be higher than 2460.14.
